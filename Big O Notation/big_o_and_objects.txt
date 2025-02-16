@@ -1,0 +1,47 @@
+OBJECTS - Unordered, key value pairs:
+let instructor = {
+    firstName: "Kelly",
+    isInstructor: true,
+    favoriteNumbers: [1,2,3,4]
+}
+
+When to use objects:
+1. When you don't need order
+2. When you need fast access / insertion and removal
+
+Big O of Objects:
+Insertion - O(1)
+Removal - O(1)
+Searching - O(N)
+Access - O(1)
+
+Big O of Object Methods:
+Object.keys - O(N)
+Object.values - O(N)
+Object.entries - O(N)
+hasOwnProperty - O(1)
+
+ARRAYS - Ordered lists:
+let names = ["Michael", "Melissa", "Andrea"];
+let values = [true, {}, [], 2, "awesome"];
+
+When to use arrays:
+1. When you need order
+2. When you need fast access / insertion and removal (sort of....)
+
+Big O of Arrays:
+Insertion - It depends....
+Removal -  It depends....
+Searching - O(N)
+Access - O(1)
+
+Big O of Array Operations
+push - O(1) - adds one or more elements to the end of an array
+pop - O(1) - works the same way as push(), except that it removes the last element or elements from an array
+shift - O(N) - works from the beginning of the array and removes the first element
+unshift - O(N) - is the opposite of shift() and inserts element(s) at the beginning of the array
+concat - O(N)
+slice - O(N)
+splice - O(N)
+sort - O(N * log N)
+forEach/map/filter/reduce/etc. - O(N)

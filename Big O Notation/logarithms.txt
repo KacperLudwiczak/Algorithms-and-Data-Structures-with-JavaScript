@@ -1,0 +1,27 @@
+Logarithms
+We've encountered some of the most common complexities: O(1), O(n), O(n^2).
+Sometimes big O expressions involve more complex mathematical expressions.
+One that appears more often than you might like is the logarithm!
+
+Wait, what's a log again?
+log2(8) = 3 -> 2^3 = 8
+log2(value) = exponent -> 2^exponent = value
+
+We'll omit the 2.
+log === log^2
+
+The logarithm of a number roughly measures the number of times you can divide that number by 2 before you get a value that's less than or equal to one.
+
+An Example: We needed to divide 3 times number 8, by 2, to get 1:
+8 / 2 = 4
+4 / 2 = 2
+2 / 2 = 1
+So log2(8) = 3 or log(8) = 3
+
+An Example: We needed to divide not fully 5 times number 25, by 2, to get less than 1:
+25 / 2 = 12.5
+12.5 / 2 = 6.25
+6.25 / 2 = 3.125
+3.125 / 2 = 1.5625
+1.5625 / 2 = 0.78125
+So log2(25) = 4.64 or log(25) = 4.64
