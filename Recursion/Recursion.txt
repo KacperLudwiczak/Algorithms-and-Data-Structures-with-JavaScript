@@ -1,0 +1,40 @@
+Recursion - a process (a function in our case) that calls itself
+
+It's EVERYWHERE:
+1. JSON.parse / JSON.stringify
+2. document.getElementById and DOM traversal algorithms
+3. Object traversal
+4. Very common with more complex algorithms
+5. It's sometimes a cleaner alternative to iteration
+
+How recursive functions work:
+Invoke the same function with a different input until you reach your base case.
+
+Base Case:
+The condition when the recursion ends.
+This is the most important concept to understand.
+
+Two essential parts of a recursive function:
+1. Base Case
+2. Different Input
+
+Where things go wrong:
+1. No base case
+2. Forgetting to return or returning the wrong thing
+3. Stack overflow (endless loop)
+
+HELPER METHOD RECURSION:
+function outer(input){   
+    var outerScopedVariable = []
+    function helper(helperInput){
+        // modify the outerScopedVariable
+        helper(helperInput--)
+    }    
+    helper(input)
+    return outerScopedVariable;
+}
+
+PURE RECURSION:
+1. For arrays, use methods like slice, the spread operator, and concat that make copies of arrays so you do not mutate them.
+2. Remember that strings are immutable so you will need to use methods like slice, substr, or substring to make copies of strings.
+3. To make copies of objects use Object.assign, or the spread operator.
