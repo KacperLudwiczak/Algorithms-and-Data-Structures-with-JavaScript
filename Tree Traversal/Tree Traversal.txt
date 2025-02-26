@@ -1,0 +1,55 @@
+TREE TRAVERSAL
+
+TRAVERSING A TREE - Two ways:
+1. Breadth-first Search
+2. Depth-first Search
+
+BFS Steps - Iteratively:
+1. Create a queue (this can be an array) and a variable to store the values of nodes visited
+2. Place the root node in the queue
+3. Loop as long as there is anything in the queue
+    1. Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
+    2. If there is a left property on the node dequeued - add it to the queue
+    3. If there is a right property on the node dequeued - add it to the queue
+4. Return the variable that stores the values
+
+DFS PreOrder Steps - Recursively:
+1. Create a variable to store the values of nodes visited
+2. Store the root of the BST in a variable called current
+3. Write a helper function which accepts a node
+    1. Push the value of the node to the variable that stores the values
+    2. If the node has a left property, call the helper function with the left property on the node
+    3. If the node has a right property, call the helper function with the right property on the node
+4. Invoke the helper function with the current variable
+5. Return the array of values
+
+DFS PostOrder Steps - Recursively:
+1. Create a variable to store the values of nodes visited
+2. Store the root of the BST in a variable called current
+3. Write a helper function which accepts a node
+    1. If the node has a left property, call the helper function with the left property on the node
+    2. If the node has a right property, call the helper function with the right property on the node
+    3. Push the value of the node to the variable that stores the values
+4. Invoke the helper function with the current variable
+5. Return the array of values
+
+DFS InOrder Steps - Recursively:
+1. Create a variable to store the values of nodes visited
+2. Store the root of the BST in a variable called current
+3. Write a helper function which accepts a node
+    1. If the node has a left property, call the helper function with the left property on the node
+    2. Push the value of the node to the variable that stores the values
+    3. If the node has a right property, call the helper function with the right property on the node
+4. Invoke the helper function with the current variable
+5. Return the array of values
+
+BREADTH FIRST - Lots of nodes to keep track of.
+DEPTH FIRST - Fewer nodes to keep track of.
+DFS InOrder - Used commonly with BST's. We get all nodes in the tree in their underlying order.
+DFS PreOrder - Can be used to "export" a tree structure so that it is easily reconstructed or copied.
+
+RECAP:
+Trees are non-linear data structures that contain a root and child nodes
+Binary Trees can have values of any type, but at most two children for each parent
+Binary Search Trees are a more specific version of binary trees where every node to the left of a parent is less than it's value and every node to the right is greater
+We can search through Trees using BFS and DFS
