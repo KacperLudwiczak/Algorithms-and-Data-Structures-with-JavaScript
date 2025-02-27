@@ -1,0 +1,117 @@
+GRAPHS
+A graph data structure consists of a finite (and possibly mutable) set of vertices or nodes or points, 
+together with a set of unordered pairs (connections) of these vertices for an undirected graph or a set of ordered pairs for a directed graph.
+
+GRAPHS = Nodes + Connections
+
+USES FOR GRAPHS:
+Social Networks
+Location / Mapping
+Routing Algorithms
+Visual Hierarchy
+File System Optimizations
+EVERYWHERE!
+
+ESSENTIAL GRAPH TERMS:
+Vertex - a node
+Edge - connection between nodes
+Weighted/Unweighted - values assigned to distances between vertices
+Directed/Undirected - directions assigned to distanced between vertices
+
+Adjacency List:
+Can take up less space (in sparse graphs).
+Faster to iterate over all edges.
+Can be slower to lookup specific edge.
+
+Adjacency Matrix:
+Takes up more space (in sparse graphs).
+Slower to iterate over all edges.
+Faster to lookup specific edge.
+
+ADDING A VERTEX:
+1. Write a method called addVertex, which accepts a name of a vertex.
+2. It should add a key to the adjacency list with the name of the vertex and set its value to be an empty array.
+
+graph.addVertex("Tokyo")
+        ︙   
+        ﹀
+{
+    "Tokyo": []
+}
+
+ADDING AN EDGE:
+1. This function should accept two vertices, we can call them vertex1 and vertex2.
+2. The function should find in the adjacency list the key of vertex1 and push vertex2 to the array.
+3. The function should find in the adjacency list the key of vertex2 and push vertex1 to the array.
+
+{
+  "Tokyo": [],
+  "Dallas": [],
+  "Aspen": []
+}
+        ︙   
+        ﹀
+graph.addEdge("Tokyo", "Dallas")
+        ︙   
+        ﹀
+{
+  "Tokyo": ["Dallas"],
+  "Dallas": ["Tokyo"],
+  "Aspen": []
+}
+        ︙   
+        ﹀
+graph.addEdge("Dallas", "Aspen")
+        ︙   
+        ﹀
+{
+  "Tokyo": ["Dallas"],
+  "Dallas": ["Tokyo", "Aspen"],
+  "Aspen": ["Dallas"]
+}
+
+REMOVING AN EDGE:
+1. This function should accept two vertices, we'll call them vertex1 and vertex2.
+2. The function should reassign the key of vertex1 to be an array that does not contain vertex2.
+3. The function should reassign the key of vertex2 to be an array that does not contain vertex1.
+
+{
+  "Tokyo": ["Dallas"],
+  "Dallas": ["Tokyo", "Aspen"],
+  "Aspen": ["Dallas"]
+}
+        ︙   
+        ﹀
+graph.removeEdge("Tokyo", "Dallas")
+        ︙   
+        ﹀
+{
+  "Tokyo": [],
+  "Dallas": ["Aspen"],
+  "Aspen": ["Dallas"]
+}
+
+REMOVING A VERTEX:
+1. The function should accept a vertex to remove.
+2. The function should loop as long as there are any other vertices in the adjacency list for that vertex.
+3. Inside of the loop, call our removeEdge function with the vertex we are removing and any values in the adjacency list for that vertex.
+4. Delete the key in the adjacency list for that vertex.
+
+{
+  "Tokyo": ["Dallas", "Hong Kong"],
+  "Dallas": ["Tokyo", "Aspen", "Hong Kong", "Los Angeles"],
+  "Aspen": ["Dallas"],
+  "Hong Kong": ["Tokyo", "Dallas", "Los Angeles"],
+  "Los Angeles": ["Hong Kong", "Dallas"]
+}
+        ︙   
+        ﹀
+graph.removeVertex("Hong Kong")
+        ︙   
+        ﹀
+{
+  "Tokyo": ["Dallas"],
+  "Dallas": ["Tokyo", "Aspen","Los Angeles"],
+  "Aspen": ["Dallas"],
+  "Los Angeles": ["Dallas"]
+}
