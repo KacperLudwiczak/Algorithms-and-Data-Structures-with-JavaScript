@@ -1,0 +1,44 @@
+Dijkstra's Algorithm
+One of the most famous and widely used algorithms around.
+Finds the shortest path between two vertices on a graph.
+"What's the fastest way to get from point A to point B?".
+
+WHY IS IT USEFUL?
+GPS - finding fastest route
+Network Routing - finds open shortest path for data
+Biology - used to model the spread of viruses among humans
+Airline tickets - finding cheapest route to your destination
+Many other uses!
+
+Find the shortest path from A to E
+THE APPROACH:
+1. Every time we look to visit a new node, we pick the node with the smallest known distance to visit first.
+2. Once we’ve moved to the node we’re going to visit, we look at each of its neighbors
+3. For each neighboring node, we calculate the distance by summing the total edges that lead to the node we’re checking from the starting node.
+4. If the new total distance to a node is less than the previous total, we store the new shorter distance for that node.
+
+Dijkstra's Pseudocode:
+1. This function should accept a starting and ending vertex.
+2. Create an object (we'll call it distances) and set each key to be every vertex in the adjacency list with a value of infinity, 
+except for the starting vertex which should have a value of 0.
+3. After setting a value in the distances object, add each vertex with a priority of Infinity to the priority queue, 
+except the starting vertex, which should have a priority of 0 because that's where we begin.
+4. Create another object called previous and set each key to be every vertex in the adjacency list with a value of null.
+5. Start looping as long as there is anything in the priority queue:
+    1. Dequeue a vertex from the priority queue.
+    2. If that vertex is the same as the ending vertex - we are done.
+    3. Otherwise loop through each value in the adjacency list at that vertex:
+        1. Calculate the distance to that vertex from the starting vertex.
+        2. If the distance is less than what is currently stored in our distances object:
+            1. Update the distances object with new lower distance.
+            2. Update the previous object to contain that vertex.
+            3. Enqueue the vertex with the total distance from the start node.
+
+Recap:
+Graphs are collections of vertices connected by edges
+Graphs can be represented using adjacency lists, adjacency matrices and quite a few other forms.
+Graphs can contain weights and directions as well as cycles
+Just like trees, graphs can be traversed using BFS and DFS
+Shortest path algorithms like Dijkstra can be altered using a heuristic to achieve better results like those with A*
+
+
