@@ -1,0 +1,41 @@
+DYNAMIC PROGRAMMING
+A method for solving a complex problem by breaking it down into a collection of simpler subproblems, 
+solving each of those subproblems just once, and storing their solutions.
+Dynamic Programming is using past knowledge to make solving a future problem easier.
+
+OVERLAPPING SUBPROBLEMS
+A problem is said to have overlapping subproblems if it can be broken down into subproblems which are reused several times.
+Example is FIBONACCI SEQUENCE - "Every number after the first two is the sum of the two preceding ones".
+
+OPTIMAL SUBSTRUCTURE
+A problem is said to have optimal substructure if an optimal solution can be constructed from optimal solutions of its subproblems.
+Example is also FIBONACCI SEQUENCE. Second example is looking for the shortest path from A to D.
+
+MEMOIZATION
+Storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+A MEMOIZED solution for FIBONACCI SEQUENCE problem:
+function fib(n, memo=[]){
+  if(memo[n] !== undefined) return memo[n]
+  if(n <= 2) return 1;
+  var result = fib(n-1, memo) + fib(n-2, memo);
+  memo[n] = result;
+  return result;
+}
+
+WE'VE BEEN WORKING TOP-DOWN BUT THERE IS ANOTHER WAY. THAT IS BOTTOM-UP (TABULATION)
+
+TABULATION
+Storing the result of a previous result in a "table" (usually an array).
+Usually done using iteration.
+Better space complexity can be achieved using tabulation.
+
+TABULATED VERSION
+function fib(n){
+    if(n <= 2) return 1;
+    var fibNums = [0,1,1];
+    for(var i = 3; i <= n; i++){
+        fibNums[i] = fibNums[i-1] + fibNums[i-2];
+    }
+    return fibNums[n];
+}
